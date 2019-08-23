@@ -3067,7 +3067,34 @@ This is one of the many qualities of a symbol: besides representing an entirely 
 
 ---
 
-###### 98. What's the output?
+###### 98. Is this output truly?
+
+```javascript
+const obj = {a: 1, b: 2, c: 3}
+console.log(Object.keys(obj))
+console.log(Object.values(obj))
+console.log(Object.entries(obj))
+
+`[a, b, c]` `[1, 2, 3]` `[['a', '1'], ['b', '2'], ['c': '3']]`
+```
+
+- A: true
+- B: false
+
+<details>
+<summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+These are es6 grammar. `Object.keys` function output `obj` variable's key, `Object.values` function output the value each key from `obj` variable and `Object.entries` function output two-dimensional array key-value make up a array.
+
+</p>
+</details>
+
+---
+
+###### 99. What's the output?
 
 ```javascript
 const getList = ([x, ...y]) => [x, y]
@@ -3107,7 +3134,7 @@ Since no value gets returned in this case, the function returns `undefined`.
 
 ---
 
-###### 99. What's the output?
+###### 100. What's the output?
 
 ```javascript
 const name = "Lydia"
@@ -3137,7 +3164,7 @@ ReferenceErrors get thrown when JavaScript isn't able to find a reference to a v
 
 ---
 
-###### 100. What's the value of output?
+###### 101. What's the value of output?
 
 ```javascript
 const output = `${[] && 'Im'}possible!
@@ -3163,7 +3190,7 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 
 ---
 
-###### 101. What's the value of output?
+###### 102. What's the value of output?
 
 ```javascript
 const one = (false || {} || null)
@@ -3196,7 +3223,7 @@ With the `||` operator, we can return the first truthy operand. If all values ar
 
 ---
 
-###### 102. what's the output?
+###### 103. what's the output?
 
 ```javascript
 console.log(1)
@@ -3226,5 +3253,60 @@ what is the Microtasks and Macro-Tasks?
 <br><img src="https://img-blog.csdn.net/20180411202638415?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xjMjM3NDIzNTUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="450" /><br>
 `Promise` and `process.nextTick` are the Microtasks. `setTimeout`, `setInterval` and `script` are the Macro-Tasks.
 so Macro-Tasks are not executed until Microtasks are completed, but `setTimeout` `0s` is prior to `1000s` executed.
+</p>
+</details>
+
+---
+
+###### 104. which result is true?
+
+```javascript
+(async function(){
+  function fnc () {
+    return new Promise((res, rej) => {
+      setTimeout(res, 5 * 1000)
+    })
+  }
+
+  `1`
+  console.time()
+  await fnc()
+  await fnc()
+  console.timeEnd()
+
+  `2`
+  console.time()
+  fnc()
+  const fn = async function () {
+    await fnc()
+  }
+  await fn()
+  console.timeEnd()
+
+  `3`
+  console.time()
+  fnc()
+  const fn = async function () {
+    const f = fnc()
+    await f
+    await fnc()
+  }
+  await fn()
+  console.timeEnd()
+})()
+```
+
+- A: `10s多` `5s多` `10s多`
+- B: `10s多` `10s多` `5s多`
+- C: `5s多` `5s多` `10s多`
+- D: `5s多` `5s多` `5s多`
+
+<details>
+<summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+This is a `async/await` runtime question. The next await function executed until the first one finished, and setTimeout time is 5000s. so example `1` need maybe 10001s, example `2` One synchronous and one asynchronous need time maybe 5001s, and example `3` the asynchronous function `fn` have two asynchronous function so need runtime maybe 10001s.
 </p>
 </details>
