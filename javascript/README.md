@@ -3310,3 +3310,30 @@ so Macro-Tasks are not executed until Microtasks are completed, but `setTimeout`
 This is a `async/await` runtime question. The next await function executed until the first one finished, and setTimeout time is 5000s. so example `1` need maybe 10001s, example `2` One synchronous and one asynchronous need time maybe 5001s, and example `3` the asynchronous function `fn` have two asynchronous function so need runtime maybe 10001s.
 </p>
 </details>
+
+---
+
+###### 105. what's the output?
+
+```javascript
+const num = 10
+const num1 = '2'
+console.log(+num1 + num)
+console.log(num * num1)
+console.log(num / num1)
+```
+
+- A: `12` `20` `5`
+- B: `102` `NaN` `NaN`
+- C: `NaN` `NaN` `NaN`
+
+<details>
+<summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+javascript is a weak-type language, so variable's type is variable. `+num1` can force change string type to number type, so the first output is `12`. And `*`, `/`, `%` and so on, these trying to change variables on both sides of the operator to number types, so the second value and the third value are 20 and 5.
+
+</p>
+</details>
