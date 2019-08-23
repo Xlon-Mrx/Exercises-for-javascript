@@ -3221,9 +3221,9 @@ console.log(5)
 #### Answer: B
 
 This is the event loop question, about Microtasks and Macro-Tasks. 
-<br><img src="https://img-blog.csdn.net/2018041120124254?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xjMjM3NDIzNTUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="350" />
+<br><img src="https://img-blog.csdn.net/2018041120124254?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xjMjM3NDIzNTUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="450" /><br>
 what is the Microtasks and Macro-Tasks?
-<br><img src="https://img-blog.csdn.net/20180411202638415?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xjMjM3NDIzNTUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="350" />
+<br><img src="https://img-blog.csdn.net/20180411202638415?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xjMjM3NDIzNTUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="450" /><br>
 `Promise` and `process.nextTick` are the Microtasks. `setTimeout`, `setInterval` and `script` are the Macro-Tasks.
 so Macro-Tasks are not executed until Microtasks are completed, but `setTimeout` `0s` is prior to `1000s` executed.
 </p>
