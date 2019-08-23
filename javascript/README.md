@@ -3337,3 +3337,28 @@ javascript is a weak-type language, so variable's type is variable. `+num1` can 
 
 </p>
 </details>
+
+---
+
+###### 106. which results is truly?
+
+```javascript
+const item1 = [1, 2, 3]
+const item2 = {a: 1, b: 2, c: 3}
+console.log([...item1, ...item2])
+console.log({...item2, ...{c: 4, d: 5}})
+console.log([item1, ...[1, 2]])
+```
+
+- A: `ReferenceError` `{a: 1, b:2, c: 4, d: 5}` `[1, 2, 3, 1, 2]`
+- B: `TypeError` `{{a: 1, b: 2, c: 3}, c: 4, d: 5}` `[[1, 2, 3], 1, 2]`
+- C: `TypeError` `{a: 1, b: 2, c: 4, d: 5}` `[[1, 2, 3], 1, 2]`
+
+<details>
+<summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+</p>
+</details>
