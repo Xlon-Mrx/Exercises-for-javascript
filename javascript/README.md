@@ -3360,5 +3360,8 @@ console.log([item1, ...[1, 2]])
 
 #### Answer: C
 
+`···` is es7 extended operator. so variable can merge when they are the same type. Back to this subject, variable `item1` is Array and
+`item2` is Object, they are different types, so this output is `TypeError`. And the second output between object and object. In addition, the same key in object, the latter will cover the former. so the second output is `{a: 1, b: 2, c: 4, d: 5}`. At the third, the first variable isn's use extended operator, so it isn't destructured and assigned, output is `[[1, 2, 3], 1, 2]`.
+
 </p>
 </details>
