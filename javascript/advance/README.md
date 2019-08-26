@@ -714,3 +714,48 @@ so Macro-Tasks are not executed until Microtasks are completed, but `setTimeout`
 This is a `async/await` runtime question. The next await function executed until the first one finished, and setTimeout time is 5000s. so example `1` need maybe 10001s, example `2` One synchronous and one asynchronous need time maybe 5001s, and example `3` the asynchronous function `fn` have two asynchronous function so need runtime maybe 10001s.
 </p>
 </details>
+
+---
+
+###### 21. what's the output?
+
+```javascript
+`1`
+console.log(parseInt('10'))
+console.log(parseInt('121', 3))
+console.log(parseInt('1139', 8))
+console.log(parseInt('0x1003'))
+
+`2`
+['10', '10', '10', '10', '10'].map(parseInt)
+```
+
+- A: `10` `13` `NaN` `NaN` and `[10, NaN, NaN, NaN, NaN]`
+- B: `10` `16` `75` `4099` and `[10, NaN, 2, 3, 4]`
+- C: `10` `16` `NaN` `NaN` and `[10, NaN, 2, 3, 4]`
+- D: `10` `13` `NaN` `4099` and `TypeError`
+
+<details>
+<summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+This question what you needs understand `parseInt`. At first,  `parseInt` can force change `string` to `number`, and `parseInt` have two
+arguments `string` and `radix`. when not _radix_ or _radix_ is 0, default _radix_ is `10`, and when `string` is `0x` or `0X` before, _radix_ is `16`. Each of the string, when value is bigger than _radix_, this value and later are ignored.
+
+In example `1`, the second output is `16`, computing method is `3的0次方 + 3的一次方 * 2 + 3的二次方`. And the third output is `75`.
+
+The other example `2`, `map` have three arguments, `callback` `index` and `source array`. so this example could be understanded:
+
+```javascript
+parseInt('10', 0)
+parseInt('10', 1)
+parseInt('10', 2)
+parseInt('10', 3)
+parseInt('10', 4)
+```
+so the result is `[10, NaN, 2, 3, 4]`
+
+</p>
+</details>
