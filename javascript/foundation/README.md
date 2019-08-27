@@ -2640,3 +2640,40 @@ console.log([item1, ...[1, 2]])
 
 </p>
 </details>
+
+---
+
+###### 87. what's the output?
+
+```javascript
+`1`
+function fnc () {
+  const [item1, ...item2] = arguments
+  console.log(item1, item2)
+}
+
+`2`
+let fnc = () => {
+  const [item1, item2] = arguments
+  console.log(item, item2)
+}
+
+fnc()
+fnc('Mary', '22', 'shanghai')
+```
+
+- A: `undefined` `undefined` `undefined` `undefined` and `undefined` `undefined` `Mary` `22`
+- B: `ReferenceError` `ReferenceError` and `ReferenceError` `ReferenceError`
+- C: `undefined` `[]` `Mary` `['22', 'shanghai']` and `undefined` `undefined` `Mary` `['22', 'shanghai']`
+- D: `undefined` `[]` `Mary` `['22', 'shanghai']` and `ReferenceError` `ReferenceError`
+
+<details>
+<summary><b>Answer</b></summary>
+<p>
+  
+#### Answer: D
+
+_Arguments_ is a local variable in funciton but not in arrow-function. And Type of _Arguments_ is Array, so all of arguments are noted in variable `arguments`. But in arrow-function could't use `arguments`, it would throw a error `ReferenceError`.
+  
+</p>
+</details>
