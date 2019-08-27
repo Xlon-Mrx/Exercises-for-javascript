@@ -789,3 +789,35 @@ so the result is `[10, NaN, 2, 3, 4]`
   
   </p>
 </details>
+
+---
+
+###### 23. what's the output?
+
+```javascript
+function exec (type) {
+  const v1 = Object.prototype.toString.call(type)
+  const v2 = Array.isArray(type)
+  const v3 = type instanceof Object
+  console.log(v1, v2, v3)
+}
+
+exec([])
+```
+
+- A: `'array'` `true` `false`
+- B: `'[object Array]'` `true` `true`
+- C: `'[object Array]'` `true` `false
+
+<details>
+  <summary><b>Answer</b></summary>
+  <p>
+  
+  #### Answer: B
+  
+  The first `Object.prototype.toString` return a object string type, so `Object.prototype.toString` method can distinguish all types (`Number` `String` `Undefined` `Null` `Array` `Object` `Boolean`). And publish string type form like `"[object String]"`.
+  
+  And isArray is used to determine whether it's an array, so when afferent an empty array, and it's array type. but `instanceof` operator is used to determine struct function's `prototype` attribute what appear in the prototype chain, so `[] instanceof Array` is true and `[] instanceof Object` is true too.
+  
+  </p>
+</details>
