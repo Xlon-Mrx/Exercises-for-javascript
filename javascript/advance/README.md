@@ -807,7 +807,7 @@ exec([])
 
 - A: `'array'` `true` `false`
 - B: `'[object Array]'` `true` `true`
-- C: `'[object Array]'` `true` `false
+- C: `'[object Array]'` `true` `false`
 
 <details>
   <summary><b>Answer</b></summary>
