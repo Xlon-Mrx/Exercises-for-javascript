@@ -759,3 +759,33 @@ so the result is `[10, NaN, 2, 3, 4]`
 
 </p>
 </details>
+
+---
+
+###### 22. Can use `Reflect` object replace `Object` object's internal approach?
+
+- A: true
+- B: false
+
+<details>
+  <summary><b>Answer</b></summary>
+  <p>
+  
+  #### Answer: A
+  
+  In the grammar of ECAMScript6, we can use `Reflect` object replace `Object`'s related method. For this example:
+  
+  ```javascript
+  const obj = {}
+  
+  // when you add a defineProperty for this object variable, you can use this default method.
+  Object.defineProperty(obj, 'a', {value: 1})
+  
+  // but now you can use Reflect object
+  Reflect.defineProperty(obj, 'b', {value: 2})  // true
+  ```
+  
+  And use `Reflect` only return true or false, but `Object` maybe throw a error when it hasn't `defineProperty` or another attributes.
+  
+  </p>
+</details>
