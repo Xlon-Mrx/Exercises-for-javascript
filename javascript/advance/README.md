@@ -821,3 +821,38 @@ exec([])
   
   </p>
 </details>
+
+---
+
+###### 24. what's the output?
+
+```javascript
+var a = {name: 'x'}
+var b = a
+var c = {...a}
+a.x = a = {'age': 20}
+
+console.log(a.x)
+console.log(b.x)
+console.log(c)
+```
+
+- A: `{'age': 20}` `undefined` `{name: 'x'}`
+- B: `undefined` `{'age': 20}` `{name: 'x'}`
+- C: `{'age': 20}` `{'age': 20}` `{'age': 20}`
+- D: `{'age': 20}` `undefined` `{name: 'x'}`
+
+<details>
+  <summary><b>Answer</b></summary>
+  <p>
+  
+  #### Answer: B
+  
+  There are three variables `a` `b` `c`,  and b is extended from a, so there are reference to the same memory address block and when variable `a` is changed, the variable `b` is changed too.
+  
+  But variable `c` is a new object, and there are different memory address, so `c` isn't changed by `a`.
+  
+  In addition, expression `a.x = a = {'age': 20}` default is executed from right to left, but `.`'s priority is higher than `=`, so `a.x` is executed first, result is `{name: 'x', x: undefined}` follow the variable b is `{name: 'x', x: undefined}`. The next, from right to left execute assignment statement.
+  
+  </p>
+</details>
