@@ -856,3 +856,33 @@ console.log(c)
   
   </p>
 </details>
+
+--- 
+
+###### 25. what's the result?
+
+```javascript
+var name = 'x';
+(function(){
+  console.log(name)
+  var name = 'y'
+  console.log(name)
+})()
+```
+
+- A: `'x'` `'y'`
+- B: `undefined` `'y'`
+- C: `'y'` `'y'`
+
+<details>
+  <summary><b>Answer</b></summary>
+  <p>
+  
+  #### Answer: B
+  
+  This is a variable lifting problem. 
+  
+  In anonymous function, the variable `name` were defined, and it will be elevated to the beginning of the current scope but not assigned. so At this time, the variable `name`'s value is `undefined`. and the first output is `undefined`, the other is 'y'.
+  
+  </p>
+</details>
