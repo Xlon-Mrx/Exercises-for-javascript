@@ -2677,3 +2677,51 @@ _Arguments_ is a local variable in funciton but not in arrow-function. And Type 
   
 </p>
 </details>
+
+---
+
+###### 88. what's these output?
+
+```javascript
+let arr = [1, 2]
+
+for (let i in arr) {
+  console.log(i)
+}
+
+for (let v of arr) {
+  console.log(v)
+}
+
+let item1 = arr.forEach((it, index, ar) => {
+  console.log(it, index, ar)
+})
+
+let item2 = arr.map((it, index, ar) => {
+  console.log(it, index, ar)
+})
+
+let item3 = arr.filter((it, index, ar) => {
+  console.log(it, index, ar)
+})
+
+console.log(item1, item2, item3)
+```
+
+- A: `0 1` `1 2` `1 0 [1, 2] and 2 1 [1, 2]` `1 0 [1, 2] and 2 1 [1, 2]` `1 0 [1, 2] and 2 1 [1, 2]` `undefined undefined undefined`
+- B: `0 1` `1 2` `1 0 [1, 2] and 2 1 [1, 2]` `1 0 [1, 2] and 2 1 [1, 2]` `1 0 [1, 2] and 2 1 [1, 2]` `undefined [undefined, undefined] [undefined, undefined]`
+- C: `0 1` `1 2` `1 0 [1, 2] and 2 1 [1, 2]` `1 0 [1, 2] and 2 1 [1, 2]` `1 0 [1, 2] and 2 1 [1, 2]` `undefined [undefined, undefined] []`
+- D: `1 2` `0 1` `1 0 [1, 2] and 2 1 [1, 2]` `1 0 [1, 2] and 2 1 [1, 2]` `1 0 [1, 2] and 2 1 [1, 2]` `undefined [undefined, undefined] [undefined, undefined]`
+
+<details>
+  <summary><b>Answer</b></summary>
+  <p>
+  
+  #### Answer: C
+  
+  `for ... in` is traversal array subscripts `0 1` and `for ... of` is traversal array values `1 2`. And `forEach` `map` `filter` are traversal array too and callback function's arguments are the same, were array value, array subscripts and primitive array.
+  
+  But `forEach` hadn't return value`. Look the `map` function, returns the result of each value of the array, so when hadn't return values, the result is `[undefined, undefined]`. The next function `filter` is filter out eligible values, so if hadn't return values, it results is `[]`. 
+  
+  </p>
+</details>
