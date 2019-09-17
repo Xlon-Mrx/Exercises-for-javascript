@@ -886,3 +886,129 @@ var name = 'x';
   
   </p>
 </details>
+
+---
+
+###### 26. which method can you write out about function inheritance?
+
+<details>
+  <summary><b>Answer</b></summary>
+  <p>
+  
+  These are five methods about function inheritance:
+  
+  The first method is object masquerading.
+  
+  ```javascript
+    // 对象冒充
+    function funA (name, age) {
+      this.name = name
+      this.age = age
+      this.sayHello = () => {
+        return `My name is ${this.name}, and I'm ${this.age} years old!`
+      }
+    }
+    
+    function funB (name, age) {
+      this.masquerad = funcA
+      this.masquerad(name, age)
+      delete this.masquerad
+    }
+    
+    let fun = new funB('Mary', 20)
+    fun.sayHello()
+  ```
+  
+  The second method is `use call()`.
+  
+  ```javascript
+    // call()方法继承
+    function funA (name, age) {
+      this.name = name
+      this.age = age
+      this.sayHello = () => {
+        return `My name is ${this.name}, and I'm ${this.age} years old!`
+      }
+    }
+    
+    function funB (name, age) {
+      funA.call(this, name, age)
+    }
+    
+    let fun = new funB('Mary', 20)
+    fun.sayHello()
+  
+  ```
+  
+  The third method is `apply()`.
+  
+  ```javascript
+    // apply()方法继承
+    function funA (name, age) {
+      this.name = name
+      this.age = age
+      this.sayHello = () => {
+        return `My name is ${this.name}, and I'm ${this.age} years old!`
+      }
+    }
+    
+    function funB (name, age) {
+      funA.apply(this, [name, age])
+    }
+    
+    let fun = new funB('Mary', 20)
+    fun.sayHello()
+  
+  ```
+  
+  The next method is prototype method.
+  
+  ```javascript
+    // prototype
+    function funA (name, age) {
+      this.name = name
+      this.age = age
+    }
+    
+    funA.prototype.sayHello = function () {
+      return `My name is ${this.name}, and I'm ${this.age} years old!`
+    }
+    
+    function funB () {
+    }
+    
+    funB.prototype = funA.prototype
+    
+    let fun = new funB()
+    fun.name = 'Mary'
+    fun.age = 20
+    fun.sayHello()
+  
+  ```
+  
+  The last method is mixed.
+  
+  ```javascript
+    // mixed call and prototype
+    function funA (name, age) {
+      this.name = name
+      this.age = age
+    }
+    
+    funA.prototype.sayHello = function () {
+      return `My name is ${this.name}, and I'm ${this.age} years old!`
+    }
+    
+    function funB (name, age) {
+      funA.call(this, name, age)
+    }
+    
+    funB.prototype = funA.prototype
+    
+    let fun = new funB('Mary', 20)
+    fun.sayHello()
+  
+  ```
+  
+  </p>
+</details>
