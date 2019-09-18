@@ -82,15 +82,15 @@
   <summary><b>Answer</b></summary>
   <p>
   
-    Vue 生命周期指的是一个实例从开始创建到销毁的这一过程。
-    - `beforeCreated()`: 在实例创建之间执行，数据未加载状态（此时this为undefined）。
-    - `created()`: 在实例创建、数据加载后，能初始化数据，DOM渲染之前执行（此时已存在this）。
-    - `beforeMount()`: 虚拟DOM已创建完成，在数据渲染前最后一次操作数据。
-    - `mounted()`: 页面、数据渲染完成，并且真实DOM挂载完成。
-    - `beforeUpdate()`: 组件重新渲染之前执行。
-    - `updated()`: 数据已经更改完成，DOM也重新render完成。此时更改数据会陷入死循环。
-    - `beforeDestory()`: 实例销毁前执行（此时实例仍然存在）。
-    - `destoryed()`: 实例被销毁后执行。
+  Vue 生命周期指的是一个实例从开始创建到销毁的这一过程。
+  - `beforeCreated()`: 在实例创建之间执行，数据未加载状态（此时this为undefined）。
+  - `created()`: 在实例创建、数据加载后，能初始化数据，DOM渲染之前执行（此时已存在this）。
+  - `beforeMount()`: 虚拟DOM已创建完成，在数据渲染前最后一次操作数据。
+  - `mounted()`: 页面、数据渲染完成，并且真实DOM挂载完成。
+  - `beforeUpdate()`: 组件重新渲染之前执行。
+  - `updated()`: 数据已经更改完成，DOM也重新render完成。此时更改数据会陷入死循环。
+  - `beforeDestory()`: 实例销毁前执行（此时实例仍然存在）。
+  - `destoryed()`: 实例被销毁后执行。
   
   </p>
 </details>
@@ -103,24 +103,24 @@
   <summary><b>Answer</b></summary>
   <p>
   
-    - ###### 父组件向子组件通信
-    子组件通过`props`属性绑定父组件传递的数据并实现双方通信。
-    
-    - ###### 子组件向父组件通信
-    子组件通过`$emit`方法向父组件传递数据。
-    
-    - ###### 非父子组件、兄弟组件之间通信
-    ```javascript
-      const bus = new Vue()
-      
-      // 绑定事件
-      bus.$on('eventName', () => {
-        // ...todo
-      })
-      
-      // 触发事件
-      bus.$emit('eventName', params)
-    ```
+  - ###### 父组件向子组件通信
+  子组件通过`props`属性绑定父组件传递的数据并实现双方通信。
+
+  - ###### 子组件向父组件通信
+  子组件通过`$emit`方法向父组件传递数据。
+
+  - ###### 非父子组件、兄弟组件之间通信
+  ```javascript
+    const bus = new Vue()
+
+    // 绑定事件
+    bus.$on('eventName', () => {
+      // ...todo
+    })
+
+    // 触发事件
+    bus.$emit('eventName', params)
+  ```
   
   </p>
 </details>
@@ -130,12 +130,12 @@
 ###### 7. vue-router 路由如何实现?
 
 <details>
-  <summary><b>Answer</b></summary>
-  <p>
-  
-    通过改变地址栏的路径地址来请求不同的资源，从而请求不同的页面或组件。
-  
-  </p>
+<summary><b>Answer</b></summary>
+<p>
+
+  通过改变地址栏的路径地址来请求不同的资源，从而请求不同的页面或组件。
+
+</p>
 </details>
 
 ---
@@ -143,13 +143,13 @@
 ###### 8. $route 与 $router 有什么区别?
 
 <details>
-  <summary><b>Answer</b></summary>
-  <p>
-  
-    `$router`是`VueRouter`实例， 可以通过内置方法$router.push(...)跳转到指定路由地址下，或通过$router.history.back()返回上一级路由。
-    `$route`返回当前路由的相关参数，包括但不限于（`path`、`params`、`query`以及`name`）。
-  
-  </p>
+<summary><b>Answer</b></summary>
+<p>
+
+  `$router`是`VueRouter`实例， 可以通过内置方法$router.push(...)跳转到指定路由地址下，或通过$router.history.back()返回上一级路由。
+  `$route`返回当前路由的相关参数，包括但不限于（`path`、`params`、`query`以及`name`）。
+
+</p>
 </details>
 
 ---
@@ -157,12 +157,12 @@
 ###### 9. Vue 中 $nextTick 的作用是什么?
 
 <details>
-  <summary><b>Answer</b></summary>
-  <p>
-  
-    首先`$nextTick`是在下次DOM更新循环结束之后执行的回调，在修改data数据之后使用`$nextTick`方法此时该方法的回调中拿到的是最新的DOM。
-  
-  </p>
+<summary><b>Answer</b></summary>
+<p>
+
+  首先`$nextTick`是在下次DOM更新循环结束之后执行的回调，在修改data数据之后使用`$nextTick`方法此时该方法的回调中拿到的是最新的DOM。
+
+</p>
 </details>
 
 ---
@@ -170,12 +170,12 @@
 ###### 10. Vue 组件中 data 为什么要以函数形式展示?
 
 <details>
-  <summary><b>Answer</b></summary>
-  <p>
-  
-    默认组件内部`data`使用的是函数并返回对象的形式书写的，首先如若使用对象形式那么就相当于是一个全局对象，并且在每一个引用了该组件之间进行共享，其中一个引用的地方更改了data数据，其余的任何引用过该组件的地方都会同时更改。而使用函数形式能够很好的做到局部作用不被共享。
-  
-  </p>
+<summary><b>Answer</b></summary>
+<p>
+
+  默认组件内部`data`使用的是函数并返回对象的形式书写的，首先如若使用对象形式那么就相当于是一个全局对象，并且在每一个引用了该组件之间进行共享，其中一个引用的地方更改了data数据，其余的任何引用过该组件的地方都会同时更改。而使用函数形式能够很好的做到局部作用不被共享。
+
+</p>
 </details>
 
 ---
@@ -183,12 +183,12 @@
 ###### 11. computed 计算属性和 method 事件有什么区别?
 
 <details>
-  <summary><b>Answer</b></summary>
-  <p>
-  
-    从结果的角度来看两种方式都是相同的，不同点在于`computed`计算属性是基于它自身的依赖进行相应缓存的，只有相关的依赖（某个或多个数据）改变时才会重新计算并返回结果。而`method`方法只有通过重新渲染并且被调用了才会执行。
-  
-  </p>
+<summary><b>Answer</b></summary>
+<p>
+
+  从结果的角度来看两种方式都是相同的，不同点在于`computed`计算属性是基于它自身的依赖进行相应缓存的，只有相关的依赖（某个或多个数据）改变时才会重新计算并返回结果。而`method`方法只有通过重新渲染并且被调用了才会执行。
+
+</p>
   
 </details>
 
@@ -197,43 +197,42 @@
 ###### 12. Vue 中如何自定义指令或过滤器?
 
 <details>
-  <summary><b>Answer</b></summary>
-  <p>
-  
-    - 全局定义自定义指令或过滤器
-    
-    ```javascript
-      Vue.directive('directive-name', {
-        // 被绑定的指令插入dom时
-        inserted: function (el) {
+<summary><b>Answer</b></summary>
+<p>
+
+  - 全局定义自定义指令或过滤器
+
+  ```javascript
+    Vue.directive('directive-name', {
+      // 被绑定的指令插入dom时
+      inserted: function (el) {
+        // ...todo
+      }
+    })
+
+    Vue.filter('filterName', (val) => {
+      return // ...todo
+    })
+  ```
+
+  - 局部（单个组件内部）定义自定义指令或过滤器
+
+  ```javascript
+    directives: {
+      'directive-name': {
+        inserted: function () {
           // ...todo
         }
-      })
-      
-      Vue.filter('filterName', (val) => {
+      }
+    }
+
+    filters: {
+      'filterName': (val) => {
         return // ...todo
-      })
-    ```
-    
-    - 局部（单个组件内部）定义自定义指令或过滤器
-    
-    ```javascript
-      directives: {
-        'directive-name': {
-          inserted: function () {
-            // ...todo
-          }
-        }
       }
-      
-      filters: {
-        'filterName': (val) => {
-          return // ...todo
-        }
-      }
-    ```
-  
-  </p>
+    }
+  ```
+</p>
 </details>
 
 ---
@@ -241,18 +240,17 @@
 ###### 13. `keep-alive`的作用以及存在的生命周期?
 
 <details>
-  <summary><b>Answer</b></summary>
-  <p>
-  
-    `keep-alive` 是Vue内置的组件，可以使被包裹在该组件内部的组件避免被重新渲染。
-    
-    ```javascript
-      <keep-alive>
-        <component /> // 多个组件并且会被缓存
-      </keep-alive>
-    ```
-  
-  </p>
+<summary><b>Answer</b></summary>
+<p>
+
+  `keep-alive` 是Vue内置的组件，可以使被包裹在该组件内部的组件避免被重新渲染。
+
+  ```javascript
+    <keep-alive>
+      <component /> // 多个组件并且会被缓存
+    </keep-alive>
+  ```
+</p>
 </details>
 
 ---
@@ -260,10 +258,10 @@
 ###### 14. Vue 中 key 的作用是什么?
 
 <details>
-  <summary><b>Answer</b></summary>
-  <p>
-  
-    `key`的特殊性主要运用在Vue的虚拟DOM算法上，使其内部能够更方便、更快捷的辨别新旧`VNodes`，它会基于`key`的变化重新排列元素顺序，并且移除`key`不存在的元素。如果不使用`key`，Vue会使用一种最大限度减少动态元素并且尽可能的尝试修复/再利用相同类型元素的算法。当然`key`是唯一的，重复的`key`会造成渲染错误。
-  
-  </p>
+<summary><b>Answer</b></summary>
+<p>
+
+  `key`的特殊性主要运用在Vue的虚拟DOM算法上，使其内部能够更方便、更快捷的辨别新旧`VNodes`，它会基于`key`的变化重新排列元素顺序，并且移除`key`不存在的元素。如果不使用`key`，Vue会使用一种最大限度减少动态元素并且尽可能的尝试修复/再利用相同类型元素的算法。当然`key`是唯一的，重复的`key`会造成渲染错误。
+
+</p>
 </details>
