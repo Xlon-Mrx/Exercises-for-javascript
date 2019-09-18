@@ -79,9 +79,9 @@
 ###### 5. Vue 生命周期的理解?
 
 <details>
-  <summary><b>Answer</b></summary>
-  <p>
-  
+<summary><b>Answer</b></summary>
+<p>
+
   Vue 生命周期指的是一个实例从开始创建到销毁的这一过程。
   - `beforeCreated()`: 在实例创建之间执行，数据未加载状态（此时this为undefined）。
   - `created()`: 在实例创建、数据加载后，能初始化数据，DOM渲染之前执行（此时已存在this）。
@@ -91,8 +91,8 @@
   - `updated()`: 数据已经更改完成，DOM也重新render完成。此时更改数据会陷入死循环。
   - `beforeDestory()`: 实例销毁前执行（此时实例仍然存在）。
   - `destoryed()`: 实例被销毁后执行。
-  
-  </p>
+
+</p>
 </details>
 
 ---
@@ -100,29 +100,28 @@
 ###### 6. 组件间如何通信?
 
 <details>
-  <summary><b>Answer</b></summary>
-  <p>
-  
+<summary><b>Answer</b></summary>
+<p>
+
   - ###### 父组件向子组件通信
-  子组件通过`props`属性绑定父组件传递的数据并实现双方通信。
+    子组件通过`props`属性绑定父组件传递的数据并实现双方通信。
 
   - ###### 子组件向父组件通信
-  子组件通过`$emit`方法向父组件传递数据。
+    子组件通过`$emit`方法向父组件传递数据。
 
   - ###### 非父子组件、兄弟组件之间通信
-  ```javascript
-    const bus = new Vue()
+    ```javascript
+      const bus = new Vue()
 
-    // 绑定事件
-    bus.$on('eventName', () => {
-      // ...todo
-    })
+      // 绑定事件
+      bus.$on('eventName', () => {
+        // ...todo
+      })
 
-    // 触发事件
-    bus.$emit('eventName', params)
-  ```
-  
-  </p>
+      // 触发事件
+      bus.$emit('eventName', params)
+    ```
+</p>
 </details>
 
 ---
@@ -133,7 +132,7 @@
 <summary><b>Answer</b></summary>
 <p>
 
-  通过改变地址栏的路径地址来请求不同的资源，从而请求不同的页面或组件。
+    通过改变地址栏的路径地址来请求不同的资源，从而请求不同的页面或组件。
 
 </p>
 </details>
@@ -160,7 +159,7 @@
 <summary><b>Answer</b></summary>
 <p>
 
-  首先`$nextTick`是在下次DOM更新循环结束之后执行的回调，在修改data数据之后使用`$nextTick`方法此时该方法的回调中拿到的是最新的DOM。
+   首先`$nextTick`是在下次DOM更新循环结束之后执行的回调，在修改data数据之后使用`$nextTick`方法此时该方法的回调中拿到的是最新的DOM。
 
 </p>
 </details>
@@ -200,7 +199,7 @@
 <summary><b>Answer</b></summary>
 <p>
 
-  - 全局定义自定义指令或过滤器
+- 全局定义自定义指令或过滤器
 
   ```javascript
     Vue.directive('directive-name', {
@@ -215,7 +214,7 @@
     })
   ```
 
-  - 局部（单个组件内部）定义自定义指令或过滤器
+- 局部（单个组件内部）定义自定义指令或过滤器
 
   ```javascript
     directives: {
